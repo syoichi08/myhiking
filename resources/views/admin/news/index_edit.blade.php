@@ -4,16 +4,9 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <h2>Home</h2>
+            <h2>投稿記録の検索/編集</h2>
         </div>
         <div class="row">
-            <div class="col-md-4">
-                @guest
-                @else
-                <a href="{{ action('Admin\NewsController@add') }}" role="button" class="btn btn-primary">新規作成</a>
-                <a href="{{ action('Admin\NewsController@index_edit') }}" role="button" class="btn btn-primary">記録の編集</a>
-                @endguest
-            </div>
             <div class="col-md-8">
                 <form action="{{ action('Admin\NewsController@index') }}" method="get">
                     <div class="form-group row">
@@ -44,23 +37,23 @@
                             @foreach($posts as $news)
                                 <tr>
                                     <th>{{ $news->id}}</th>
-                                    <td><a href="{{ action('Admin\NewsController@detail', ['id' => $news->id]) }}">{{ \Str::limit($news->title, 100) }}</a></td>
+                                    <td>{{ \Str::limit($news->title, 100) }}</td>
                                     <td>{{ \Str::limit($news->body, 250) }}</td>
                                     <td>
                                         <!--ログインの有無でボタンの非表示を切替-->
-                                        <!--<div>-->
-                                        <!--    @guest-->
-                                        <!--    @else-->
-                                        <!--    <a href="{{ action('Admin\NewsController@edit', ['id' => $news->id]) }}">編集</a>-->
-                                        <!--    @endguest-->
-                                        <!--</div>-->
+                                        <div>
+                                            @guest
+                                            @else
+                                            <a href="{{ action('Admin\NewsController@edit', ['id' => $news->id]) }}">編集</a>
+                                            @endguest
+                                        </div>
                                         <!--ログインの有無でボタンの非表示を切替-->
-                                        <!--<div>-->
-                                        <!--    @guest-->
-                                        <!--    @else-->
-                                        <!--    <a href="{{ action('Admin\NewsController@delete', ['id' => $news->id]) }}">削除</a>-->
-                                        <!--    @endguest-->
-                                        <!--</div>-->
+                                        <div>
+                                            @guest
+                                            @else
+                                            <a href="{{ action('Admin\NewsController@delete', ['id' => $news->id]) }}">削除</a>
+                                            @endguest
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach

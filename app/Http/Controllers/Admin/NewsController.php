@@ -43,14 +43,41 @@ class NewsController extends Controller
   {
       $cond_title = $request->cond_title;
       if ($cond_title != '') {
-          // 検索されたら検索結果を取得する
-          $posts = News::where('title', $cond_title)->get();
+          // 検索されたら検索結果を降順に取得する
+          $posts = News::where('title', $cond_title)->orderBy('created_at','desc')->get();
       } else {
-          // それ以外はすべてのニュースを取得する
-          $posts = News::all();
+          // それ以外はすべてのニュースを降順に取得する
+          $posts = News::orderBy('created_at','desc')->get();
       }
       return view('admin.news.index', ['posts' => $posts, 'cond_title' => $cond_title]);
   }
+  
+  // 検索結果詳細画面へのアクセス
+  public function detail(Request $request)
+  {
+      // News Modelからデータを取得する
+      $news = News::find($request->id);
+      if (empty($news)) {
+        abort(404);    
+      }
+      return view('admin.news.detail', ['news_form' => $news]);
+  }
+  
+  // 自分投稿記録の検索画面へのアクセス
+  public function index_edit(Request $request)
+  {
+      $cond_title = $request->cond_title;
+      if ($cond_title != '') {
+          // 検索されたら検索結果を降順に取得する
+          $posts = News::where('title', $cond_title)->orderBy('created_at','desc')->get();
+      } else {
+          // それ以外はすべてのニュースを降順に取得する
+          $posts = News::orderBy('created_at','desc')->get();
+      }
+      return view('admin.news.index_edit', ['posts' => $posts, 'cond_title' => $cond_title]);
+  }
+  
+  
 public function edit(Request $request)
   {
       // News Modelからデータを取得する
@@ -81,7 +108,7 @@ public function edit(Request $request)
       // 該当するデータを上書きして保存する
       $news->fill($news_form)->save();
 
-      return redirect('admin/news');
+      return redirect('admin/news/index');
   }
   public function delete(Request $request)
   {
