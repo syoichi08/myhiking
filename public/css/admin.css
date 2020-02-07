@@ -1,27 +1,25 @@
 body {
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #fff;
-  color: black;
+  background-color: #000;
+  color: #fff;
 }
 
 .navbar-laravel {
-  background-color: #fff;
+  background-color: #000;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-  border-top: solid 1px black;
-  border-bottom: solid 1px black;
 }
 
 .navbar-brand {
-  color: black !important;
+  color: #fff !important;
 }
 
 .nav-link {
-  color: black !important;
+  color: #fff !important;
 }
 
 .table-dark {
-  color: black;
+  color: #fff;
 }
 
 .list-group-item {
@@ -41,14 +39,3 @@ body {
   background-color: rgba(0, 0, 0, 0.25);
 }
 
-/*h2 {*/
-/*  text-align: center;*/
-/*  margin-bottom: 20px;*/
-/*}*/
-
-/*.box {*/
-  /*border: solid 3px rgb(136, 182, 82);*/
-/*  border-radius: 10px;*/
-/*  padding: 10px;*/
-/*  background-color: rgba(232, 240, 219, 0.5);*/
-/*}*/

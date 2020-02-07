@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\News;
+// 自分投稿記事のみ取得
+use Illuminate\Support\Facades\Auth;
 
 class NewsController extends Controller
 {
@@ -35,6 +37,8 @@ class NewsController extends Controller
 
       // データベースに保存する
       $news->fill($form);
+      // 自分投稿記録のみ取得
+      $news->user_id = Auth::id();
       $news->save();
 
       return redirect('admin/news/create');
@@ -68,11 +72,11 @@ class NewsController extends Controller
   {
       $cond_title = $request->cond_title;
       if ($cond_title != '') {
-          // 検索されたら検索結果を降順に取得する
-          $posts = News::where('title', $cond_title)->orderBy('created_at','desc')->get();
+          // 検索されたら検索結果を取得する
+          $posts = Auth::user()->news->where('title', $cond_title);
       } else {
           // それ以外はすべてのニュースを降順に取得する
-          $posts = News::orderBy('created_at','desc')->get();
+          $posts = Auth::user()->news;
       }
       return view('admin.news.index_edit', ['posts' => $posts, 'cond_title' => $cond_title]);
   }

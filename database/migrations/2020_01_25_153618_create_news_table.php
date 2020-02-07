@@ -19,6 +19,7 @@ class CreateNewsTable extends Migration
             $table->string('area');
             $table->string('day');
             $table->string('body');
+            $table->unsignedBigInteger('user_id');
             $table->string('image_path')->nullable();
             $table->timestamps();
         });

@@ -17,31 +17,41 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="title">場所</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="title" value="{{ $news_form->title }}">
+                            <p>{{ $news_form->title }}</p>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="title">都道府県</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="area" value="{{ $news_form->area }}">
+                            <p>{{ $news_form->area }}</p>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="title">日時</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="day" value="{{ $news_form->day }}">
+                            <p>{{ $news_form->day }}</p>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="body">記録内容</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="body" rows="20">{{ $news_form->body }}</textarea>
+                            <p>{{ $news_form->body }}</p>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="title">評価</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="review" value="{{ $news_form->review }}">
+                            @if ($news_form->review == 1)
+                            <p>{{ '☆' }}</p>
+                            @elseif ($news_form->review == 2)
+                            <p>{{ '☆☆' }}</p>
+                            @elseif ($news_form->review == 3)
+                            <p>{{ '☆☆☆' }}</p>
+                            @elseif ($news_form->review == 4)
+                            <p>{{ '☆☆☆☆' }}</p>
+                            @elseif ($news_form->review == 5)
+                            <p>{{ '☆☆☆☆☆' }}</p>
+                            @endif
                         </div>
                     </div>
                     <div class="form-group row">
