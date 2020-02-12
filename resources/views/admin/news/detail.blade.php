@@ -41,17 +41,7 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="title">評価</label>
                         <div class="col-md-10">
-                            @if ($news_form->review == 1)
-                            <p>{{ '☆' }}</p>
-                            @elseif ($news_form->review == 2)
-                            <p>{{ '☆☆' }}</p>
-                            @elseif ($news_form->review == 3)
-                            <p>{{ '☆☆☆' }}</p>
-                            @elseif ($news_form->review == 4)
-                            <p>{{ '☆☆☆☆' }}</p>
-                            @elseif ($news_form->review == 5)
-                            <p>{{ '☆☆☆☆☆' }}</p>
-                            @endif
+                           {{ config('score')[$news_form->review] }}
                         </div>
                     </div>
                     <div class="form-group row">

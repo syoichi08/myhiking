@@ -120,7 +120,7 @@ public function edit(Request $request)
       $news = News::find($request->id);
       // 削除する
       $news->delete();
-      return redirect('admin/news/');
+      return redirect('admin/news/index_edit');
   }  
 
 }
