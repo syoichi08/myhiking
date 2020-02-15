@@ -12,7 +12,7 @@ class NewsController extends Controller
 {
     public function add()
     {
-        return view('admin.news.create');
+        return view('news.create');
     }
     public function create(Request $request)
     {
@@ -41,8 +41,11 @@ class NewsController extends Controller
       $news->user_id = Auth::id();
       $news->save();
 
-      return redirect('admin/news/create');
+      return redirect('news/create');
   }
+  
+  
+  
   public function index(Request $request)
   {
       $cond_title = $request->cond_title;
@@ -53,8 +56,11 @@ class NewsController extends Controller
           // それ以外はすべてのニュースを降順に取得する
           $posts = News::orderBy('created_at','desc')->get();
       }
-      return view('admin.news.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+      return view('news/index', ['posts' => $posts, 'cond_title' => $cond_title]);
   }
+  
+  
+  
   
   // 検索結果詳細画面へのアクセス
   public function detail(Request $request)
@@ -64,8 +70,10 @@ class NewsController extends Controller
       if (empty($news)) {
         abort(404);    
       }
-      return view('admin.news.detail', ['news_form' => $news]);
+      return view('news.detail', ['news_form' => $news]);
   }
+  
+  
   
   // 自分投稿記録の検索画面へのアクセス
   public function index_edit(Request $request)
@@ -78,7 +86,7 @@ class NewsController extends Controller
           // それ以外はすべてのニュースを降順に取得する
           $posts = Auth::user()->news;
       }
-      return view('admin.news.index_edit', ['posts' => $posts, 'cond_title' => $cond_title]);
+      return view('news.index_edit', ['posts' => $posts, 'cond_title' => $cond_title]);
   }
   
   
@@ -89,8 +97,10 @@ public function edit(Request $request)
       if (empty($news)) {
         abort(404);    
       }
-      return view('admin.news.edit', ['news_form' => $news]);
+      return view('news.edit', ['news_form' => $news]);
   }
+
+
 
  public function update(Request $request)
   {
@@ -112,15 +122,18 @@ public function edit(Request $request)
       // 該当するデータを上書きして保存する
       $news->fill($news_form)->save();
 
-      return redirect('admin/news/index');
+      return redirect('news/index');
   }
+  
+  
+  
   public function delete(Request $request)
   {
       // 該当するNews Modelを取得
       $news = News::find($request->id);
       // 削除する
       $news->delete();
-      return redirect('admin/news/index_edit');
+      return redirect('news/index_edit');
   }  
 
 }

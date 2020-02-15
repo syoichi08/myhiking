@@ -10,7 +10,7 @@ class ProfileController extends Controller
 {
     public function add()
     {
-        return view('admin.profile.create');
+        return view('profile.create');
     }
     public function create(Request $request)
     {
@@ -27,7 +27,7 @@ class ProfileController extends Controller
       $profile->fill($form);
       $profile->save();
 
-        return redirect('admin/profile/create');
+        return redirect('profile/create');
     }
     public function edit(Request $request)
   {
@@ -36,7 +36,7 @@ class ProfileController extends Controller
       if (empty($profile)) {
         abort(404);    
       }
-      return view('admin.profile.edit', ['profile_form' => $profile]);
+      return view('profile.edit', ['profile_form' => $profile]);
   }
 
 
@@ -53,7 +53,7 @@ class ProfileController extends Controller
       // 該当するデータを上書きして保存する
       $profile->fill($profile_form)->save();
 
-      return redirect('admin/profile/edit?id=1');
+      return redirect('profile/edit?id=1');
   }
 }
 

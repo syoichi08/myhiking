@@ -42,17 +42,17 @@
                                     <td>
                                         <!--ログインの有無でボタンの非表示を切替-->
                                         <div>
-                                            @guest
-                                            @else
+                                            <!--@guest-->
+                                            <!--@else-->
                                             <a href="{{ action('Admin\NewsController@edit', ['id' => $news->id]) }}">編集</a>
-                                            @endguest
+                                            <!--@endguest-->
                                         </div>
                                         <!--ログインの有無でボタンの非表示を切替-->
                                         <div>
-                                            @guest
-                                            @else
+                                            <!--@guest-->
+                                            <!--@else-->
                                             <a href="{{ action('Admin\NewsController@delete', ['id' => $news->id]) }}">削除</a>
-                                            @endguest
+                                            <!--@endguest-->
                                         </div>
                                     </td>
                                 </tr>
