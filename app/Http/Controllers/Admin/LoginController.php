@@ -45,10 +45,10 @@ class LoginController extends Controller
         return view('admin.login');  //変更
     }
  
-    // protected function guard()
-    // {
-    //     return Auth::guard('admin');  //変更
-    // }
+    protected function guard()
+    {
+        return Auth::guard('admin');  //変更
+    }
     
     public function logout(Request $request)
     {

@@ -47,20 +47,6 @@
                                     <td><a href="{{ action('Admin\NewsController@detail', ['id' => $news->id]) }}">{{ \Str::limit($news->title, 100) }}</a></td>
                                     <td>{{ \Str::limit($news->body, 250) }}</td>
                                     <td>
-                                        <!--ログインの有無でボタンの非表示を切替-->
-                                        <!--<div>-->
-                                        <!--    @guest-->
-                                        <!--    @else-->
-                                        <!--    <a href="{{ action('Admin\NewsController@edit', ['id' => $news->id]) }}">編集</a>-->
-                                        <!--    @endguest-->
-                                        <!--</div>-->
-                                        <!--ログインの有無でボタンの非表示を切替-->
-                                        <!--<div>-->
-                                        <!--    @guest-->
-                                        <!--    @else-->
-                                        <!--    <a href="{{ action('Admin\NewsController@delete', ['id' => $news->id]) }}">削除</a>-->
-                                        <!--    @endguest-->
-                                        <!--</div>-->
                                     </td>
                                 </tr>
                             @endforeach

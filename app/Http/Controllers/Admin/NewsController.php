@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\News;
-// 自分投稿記事のみ取得
+// Authの読み込み
 use Illuminate\Support\Facades\Auth;
 
 class NewsController extends Controller

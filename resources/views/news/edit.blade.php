@@ -25,7 +25,7 @@
                         <div class="col-md-10">
                             <select type="text" class="form-control" name="area" value="{{ $news_form->area }}">
                             @foreach(config('pref') as $key => $score)
-                               <option value="{{ $key }}">{{ $score }}</option>
+                               <option value="{{ $score }}">{{ $score }}</option>
                             @endforeach
                             </select>
                         </div>

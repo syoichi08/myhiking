@@ -38,6 +38,12 @@ Auth::routes();
     Route::get('news/edit', 'Admin\NewsController@edit');
     Route::post('news/edit', 'Admin\NewsController@update');
     Route::get('news/delete', 'Admin\NewsController@delete');
+    // ユーザーアカウントの編集
+    Route::get('user/index', 'Admin\UserController@index');
+    Route::get('user/edit', 'Admin\UserController@edit');
+    Route::post('user/edit', 'Admin\UserController@update');
+    Route::get('user/change_password', 'Admin\UserController@password_edit');
+    Route::post('user/change_password', 'Admin\UserController@password_update');
     
     // Route::get('profile/create', 'Admin\ProfileController@add');
     // Route::post('profile/create', 'Admin\ProfileController@create');
