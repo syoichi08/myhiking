@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 body {
   background-repeat: no-repeat;
   background-position: center;
@@ -16,6 +18,14 @@ body {
 
 .nav-link {
   color: #000 !important;
+}
+
+.nav-link:hover {
+  color: black !important;
+  width: 100%;
+  border-bottom:  2px black solid;
+  /*background-color: rgba(0, 0, 0, 0.1);*/
+  /*border-radius: 5px;*/
 }
 
 .table-dark {
@@ -46,58 +56,68 @@ body {
 */
 
 main {
+  display: -webkit-box;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
 }
 
 .top-wrap {
   margin: 40px;
 }
 
-.link {
+#sample {
+  padding: 30px 10px 10px 0;
+  margin-bottom: 10px;
 }
 
-#sample {
- padding:30px 10px 10px 0;
- margin-bottom:10px;
-}
 #sample .text {
- float:left;
- width:212px;
- height:40px;
- border:2px solid #CCC;
- text-indent:10px;
- margin-right:5px;
+  float: left;
+  width: 212px;
+  height: 40px;
+  border: 2px solid #CCC;
+  text-indent: 10px;
+  margin-right: 5px;
 }
+
 #sample .btn {
- float:left;
-  margin-top:10px;
+  float: left;
+  margin-top: 10px;
 }
 
 section {
+  display: -webkit-box;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
   flex-direction: column;
-  /*background-color: silver;*/
   border-top: 4px #eeece4 solid;
-　border-bottom: 4px #eeece4 solid;
 }
 
 .content {
-   display: flex;
-   /*background-color: green;*/
+  display: -webkit-box;
+  display: flex;
+  /*background-color: green;*/
 }
 
 .left-body {
+  display: -webkit-box;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
   border: 1px #eeece4 solid;
   margin: 10px;
   /*background-color: gold;*/
 }
 
 .right-body {
+  display: -webkit-box;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
   margin: 10px;
   /*background-color: pink;*/
 }
@@ -114,15 +134,6 @@ section {
   margin: 10px;
 }
 
-
-.time {
-  
-}
-
-.review {
-  
-}
-
 .desk {
   margin: 30px 30px 30px 0;
   border-top: 1px #eeece4 solid;
@@ -136,18 +147,31 @@ section {
 */
 
 #sample {
- padding:30px 10px 10px 0;
- margin-bottom:10px;
+  padding: 30px 10px 10px 0;
+  margin-bottom: 10px;
 }
+
 #sample .text {
- float:left;
- width:212px;
- height:40px;
- border:2px solid #CCC;
- text-indent:10px;
- margin-right:5px;
- margin-top:8px;
+  float: left;
+  width: 212px;
+  height: 40px;
+  border: 2px solid #CCC;
+  text-indent: 10px;
+  margin-right: 5px;
+  margin-top: 8px;
 }
+
 #sample .btn {
- float:left;
+  float: left;
+}
+
+/*
+|--------------------------------------------------------------------------
+| user/index.blade.php
+|--------------------------------------------------------------------------
+*/
+
+.user-btn {
+  display: block;
+  margin: 20px 0 20px 0;
 }
