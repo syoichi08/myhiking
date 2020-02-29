@@ -20,6 +20,7 @@ Auth::routes();
     Route::get('news/index', 'Admin\NewsController@index');
     // 検索結果詳細画面
     Route::get('news/detail', 'Admin\NewsController@detail');
+    // Route::get('login', 'Auth\LoginController@detail');
     
 /*
 |--------------------------------------------------------------------------
@@ -40,15 +41,11 @@ Auth::routes();
     Route::get('news/delete', 'Admin\NewsController@delete');
     // ユーザーアカウントの編集
     Route::get('user/index', 'Admin\UserController@index');
+    Route::post('user/index', 'Admin\UserController@delete');
     Route::get('user/edit', 'Admin\UserController@edit');
     Route::post('user/edit', 'Admin\UserController@update');
     Route::get('user/change_password', 'Admin\UserController@password_edit');
     Route::post('user/change_password', 'Admin\UserController@password_update');
-    
-    // Route::get('profile/create', 'Admin\ProfileController@add');
-    // Route::post('profile/create', 'Admin\ProfileController@create');
-    // Route::get('profile/edit', 'Admin\ProfileController@edit');
-    // Route::post('profile/edit', 'Admin\ProfileController@update');
 });
 
 

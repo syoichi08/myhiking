@@ -134,8 +134,7 @@ public function edit(Request $request)
       // 削除する
       $news->delete();
       return redirect('news/index_edit');
-  }  
-
+  }
 }
 
 

@@ -1,34 +1,23 @@
 @extends('layouts.admin')
-@section('title', 'トップページ')
+@section('title', 'マイページ')
 
 @section('content')
     <div class="container">
-        <div class="row">
-            <h2>投稿記録の検索/編集</h2>
-        </div>
-        <div class="row">
-            <div class="col-md-8">
-                <form action="{{ action('Admin\NewsController@index') }}" method="get">
-                    <div class="form-group row">
-                        <label class="col-md-2">場所名</label>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
-                        </div>
-                        <div class="col-md-2">
-                            {{ csrf_field() }}
-                            <input type="submit" class="btn btn-primary" value="検索">
-                        </div>
-                    </div>
+            <div id="sample">
+                <form action="{{ action('Admin\NewsController@index_edit') }}" method="get">
+                    <input type="text" class="text" name="cond_title" value="{{ $cond_title }}" placeholder="場所名を入力">
+                    <input type="submit" class="btn btn-secondary" value="検索">
+                    <p style="clear:both;"></p>
+                    {{ csrf_field() }}
                 </form>
             </div>
-        </div>
         <div class="row">
             <div class="list-news col-md-12 mx-auto">
                 <div class="row">
                     <table class="table table-white">
                         <thead>
                             <tr>
-                                <th width="10%">ID</th>
+                                <th width="10%">タイトル</th>
                                 <th width="20%">場所</th>
                                 <th width="50%">記録内容</th>
                             </tr>
@@ -36,8 +25,8 @@
                         <tbody>
                             @foreach($posts as $news)
                                 <tr>
-                                    <th>{{ $news->id}}</th>
                                     <td>{{ \Str::limit($news->title, 100) }}</td>
+                                    <th>{{ $news->area}}</th>
                                     <td>{{ \Str::limit($news->body, 250) }}</td>
                                     <td>
                                         <!--ログインの有無でボタンの非表示を切替-->

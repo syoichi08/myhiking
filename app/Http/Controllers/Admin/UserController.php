@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth; //追加
-use Illuminate\Support\Facades\Hash; //追加
+use Illuminate\Support\Facades\Auth; //userデータ登録内容の変更
+use Illuminate\Support\Facades\Hash; //パスワードの変更
+use App\User;//論理削除
 
 class UserController extends Controller
 {
-    //下記を追加
     //userデータの取得
     public function index() {
         return view('user.index', ['user' => Auth::user() ]);
@@ -24,7 +24,7 @@ class UserController extends Controller
         $user_form = $request->all();
         $user = Auth::user();
         //不要な「_token」の削除
-        // unset($user_form['_token']);
+        unset($user_form['_token']);
         $user->fill($user_form)->save();
         return redirect('user/index');
     }
@@ -34,7 +34,7 @@ class UserController extends Controller
     public function password_edit() {
         return view('user.password_edit', ['user' => Auth::user() ]);
     }
-     public function password_update(Request $request) {
+    public function password_update(Request $request) {
         
         //現在のパスワードが正しいかを調べる
         if(!(Hash::check($request->get('current-password'), Auth::user()->password))) {
@@ -59,5 +59,12 @@ class UserController extends Controller
 
         return redirect()->back()->with('change_password_success', 'パスワードを変更しました。');
     }
+    //論理削除
+    public function delete(Request $request)
+    {
+        User::find($request->id)->delete();
+        return redirect('news/index');
+    }
+
     
 }

@@ -7,7 +7,7 @@ body {
 
 .navbar-laravel {
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.04);
+  border-bottom: 4px #eeece4 solid;
 }
 
 .navbar-brand {
@@ -28,13 +28,126 @@ body {
 }
 
 .login-box {
-  background-color: rgba(255, 255, 255, 255);
+  background-color: white;
 }
 
 .login-header {
-  background-color: rgba(255, 255, 255, 0.25)
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
 .login-body {
   background-color: rgba(255, 255, 255, 0.25);
+}
+
+/*
+|--------------------------------------------------------------------------
+| news/index.blade.php
+|--------------------------------------------------------------------------
+*/
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-wrap {
+  margin: 40px;
+}
+
+.link {
+}
+
+#sample {
+ padding:30px 10px 10px 0;
+ margin-bottom:10px;
+}
+#sample .text {
+ float:left;
+ width:212px;
+ height:40px;
+ border:2px solid #CCC;
+ text-indent:10px;
+ margin-right:5px;
+}
+#sample .btn {
+ float:left;
+  margin-top:10px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  /*background-color: silver;*/
+  border-top: 4px #eeece4 solid;
+　border-bottom: 4px #eeece4 solid;
+}
+
+.content {
+   display: flex;
+   /*background-color: green;*/
+}
+
+.left-body {
+  display: flex;
+  flex-direction: column;
+  border: 1px #eeece4 solid;
+  margin: 10px;
+  /*background-color: gold;*/
+}
+
+.right-body {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  /*background-color: pink;*/
+}
+
+.title {
+  width: 300px;
+  padding: 10px 0 0 40px;
+  line-height: 15px;
+  border-bottom: 1px #eeece4 solid;
+  font-size: 24px;
+}
+
+.img {
+  margin: 10px;
+}
+
+
+.time {
+  
+}
+
+.review {
+  
+}
+
+.desk {
+  margin: 30px 30px 30px 0;
+  border-top: 1px #eeece4 solid;
+  /*background-color: yellow;*/
+}
+
+/*
+|--------------------------------------------------------------------------
+| news/index_edit.blade.php
+|--------------------------------------------------------------------------
+*/
+
+#sample {
+ padding:30px 10px 10px 0;
+ margin-bottom:10px;
+}
+#sample .text {
+ float:left;
+ width:212px;
+ height:40px;
+ border:2px solid #CCC;
+ text-indent:10px;
+ margin-right:5px;
+ margin-top:8px;
+}
+#sample .btn {
+ float:left;
 }

@@ -29,57 +29,65 @@
     <body>
         <div id="app">
             {{-- 画面上部に表示するナビゲーションバーです。 --}}
-            <nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
-                <div class="container">
-                    <a class="navbar-brand" href="{{ url('news/index') }}">
-                        {{ config('app.name', 'Home') }}
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+                <nav class="navbar navbar-light navbar-expand-sm">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav mr-auto">
-
-                        </ul>
-
-                        <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ml-auto">
-
-                        {{-- 以下を追記 --}}
-                        <!-- Authentication Links -->
-                        {{-- ログインしていなかったらログイン画面へのリンクを表示 --}}
-                        @guest
-                            <li><a class="nav-link" href="{{ route('admin.login') }}">{{ __('Login') }}</a></li>
-                        {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                    <div id="menu" class="collapse navbar-collapse justify-content-around">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('news/index') }}">ホーム
                                 </a>
-
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
                             </li>
+                            @guest
+                            @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ action('Admin\NewsController@add') }}">新規作成
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ action('Admin\NewsController@index_edit') }}">記録の編集
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ action('Admin\UserController@index') }}">アカウントの変更
+                                </a>
                             @endguest
-                            {{-- 以上までを追記 --}}
                         </ul>
                     </div>
-                </div>
+                </nav>
+                <!-- Right Side Of Navbar -->
+                <ul class="navbar-nav ml-auto">
+                {{-- 登録、ログインしていなかったら登録画面、ログイン画面へのリンクを表示 --}}
+                @guest
+                    <li><a class="nav-link" href="{{ route('register') }}">{{ __('register') }}</a></li>
+                    <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
+                @else
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                    @endguest
+                </ul>
             </nav>
             {{-- ここまでナビゲーションバー --}}
 
-            <main class="py-4">
+            <main>
                 {{-- コンテンツをここに入れるため、@yieldで空けておきます。 --}}
                 @yield('content')
             </main>

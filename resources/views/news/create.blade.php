@@ -2,12 +2,10 @@
 @section('title', 'ハイキング記録の作成')
 
 @section('content')
-    <div class="container">
+    <div class="container m-5">
         <div class="row box">
             <div class="col-md-8 mx-auto">
-                <h2>ハイキング記録作成</h2>
                 <form action="{{ action('Admin\NewsController@create') }}" method="post" enctype="multipart/form-data">
-
                     @if (count($errors) > 0)
                         <ul>
                             @foreach($errors->all() as $e)
@@ -45,7 +43,7 @@
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-2">評価</label>
+                        <label class="col-md-2">満足度</label>
                         <div class="col-md-10">
                         <select type="text" class="form-control" name="review" value="{{ old('review') }}">
                             @foreach(config('score') as $key => $score)
@@ -62,7 +60,7 @@
                         </div>
                     </div>
                     {{ csrf_field() }}
-                    <input type="submit" class="btn btn-primary" value="作成">
+                    <input type="submit" class="btn btn-secondary" value="作成">
                 </form>
             </div>
         </div>
