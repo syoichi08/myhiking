@@ -16,6 +16,7 @@ class User extends Authenticatable
     //論理削除用に追記
     use SoftDeletes;
 
+
     /**
      * The attributes that are mass assignable.
      *

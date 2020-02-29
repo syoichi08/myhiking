@@ -60,9 +60,9 @@ class UserController extends Controller
         return redirect()->back()->with('change_password_success', 'パスワードを変更しました。');
     }
     //論理削除
-    public function delete(Request $request)
+    public function softdelete()
     {
-        User::find($request->id)->delete();
+        User::find(Auth::id())->delete();
         return redirect('news/index');
     }
 

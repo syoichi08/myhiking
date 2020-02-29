@@ -41,7 +41,7 @@ Auth::routes();
     Route::get('news/delete', 'Admin\NewsController@delete');
     // ユーザーアカウントの編集
     Route::get('user/index', 'Admin\UserController@index');
-    Route::post('user/index', 'Admin\UserController@delete');
+    Route::get('user/softdelete', 'Admin\UserController@softdelete');
     Route::get('user/edit', 'Admin\UserController@edit');
     Route::post('user/edit', 'Admin\UserController@update');
     Route::get('user/change_password', 'Admin\UserController@password_edit');

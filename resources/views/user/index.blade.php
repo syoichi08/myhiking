@@ -25,7 +25,7 @@
             </div>
               <a href="{{ action('Admin\UserController@edit') }}"><button class="user-btn">ユーザー登録内容の編集</button></a>
               <a href="{{ action('Admin\UserController@password_edit') }}"><button class="user-btn">パスワードの編集</button></a>
-              <a href="{{ action('Admin\UserController@delete') }}"><button class="user-btn">登録解除</button></a>
+              <a href="{{ action('Admin\UserController@softdelete') }}"><button class="user-btn">登録解除</button></a>
         </div>
       </div>
     </div>
