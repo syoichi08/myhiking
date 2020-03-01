@@ -25,7 +25,7 @@
             <div class="img">
                 <!--画像-->
                 @if ($news->image_path)
-                    <img src="{{ $news->image_path) }}">
+                    <img src="{{ $news->image_path }}">
                 @endif
             </div>
         </div>   

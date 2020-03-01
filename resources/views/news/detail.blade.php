@@ -27,7 +27,7 @@
                     </div>
                     <div class="form-group row">
                         @if ($news_form->image_path)
-                            <img src="{{ $news_form->image_path) }}">
+                            <img src="{{ $news_form->image_path }}">
                         @endif
                     </div>
                     <div class="form-group row">
