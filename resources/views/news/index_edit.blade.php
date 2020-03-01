@@ -2,7 +2,7 @@
 @section('title', 'マイページ')
 
 @section('content')
-    <div class="container">
+    <div class="container mt-5 mb-5">
             <div id="sample">
                 <form action="{{ action('Admin\NewsController@index_edit') }}" method="get">
                     <input type="text" class="text" name="cond_title" value="{{ $cond_title }}" placeholder="場所名を入力">

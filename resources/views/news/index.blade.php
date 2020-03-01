@@ -3,15 +3,6 @@
 
 @section('content')
     <div class="top-wrap">
-        <!--<div class="link">-->
-        <!--    @guest-->
-        <!--    @else-->
-        <!--    <a href="{{ action('Admin\NewsController@add') }}" role="button" class="btn btn-secondary">新規作成</a>-->
-        <!--    <a href="{{ action('Admin\NewsController@index_edit') }}" role="button" class="btn btn-secondary">記録の編集</a>-->
-        <!--    <a href="{{ action('Admin\UserController@index') }}" role="button" class="btn btn-secondary">アカウントの変更</a>-->
-        <!--    @endguest-->
-        <!--</div>-->
-        
         <div id="sample">
             <form action="{{ action('Admin\NewsController@index') }}" method="get">
             <input type="text" class="text" name="cond_title" value="{{ $cond_title }}" placeholder="場所名を入力">
@@ -34,7 +25,7 @@
             <div class="img">
                 <!--画像-->
                 @if ($news->image_path)
-                    <img src="{{ asset('storage/image/' . $news->image_path) }}">
+                    <img src="{{ $news->image_path) }}">
                 @endif
             </div>
         </div>   

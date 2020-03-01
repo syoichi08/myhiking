@@ -2,7 +2,7 @@
 @section('title', 'ハイキング記録の編集')
 
 @section('content')
-    <div class="container m-5">
+    <div class="container mt-5 mb-5">
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <form action="{{ action('Admin\NewsController@update') }}" method="post" enctype="multipart/form-data">

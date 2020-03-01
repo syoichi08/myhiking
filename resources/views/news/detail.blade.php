@@ -2,7 +2,7 @@
 @section('title', 'ハイキング記録')
 
 @section('content')
-    <div class="container">
+    <div class="container mt-5 mb-5">
         <div class="row">
             <div class="col-md-8 mx-auto">
                     <div class="form-group row">
@@ -27,7 +27,7 @@
                     </div>
                     <div class="form-group row">
                         @if ($news_form->image_path)
-                            <img src="{{ asset('storage/image/' . $news_form->image_path) }}">
+                            <img src="{{ $news_form->image_path) }}">
                         @endif
                     </div>
                     <div class="form-group row">
