@@ -43,7 +43,7 @@
                             @guest
                             @else
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ action('Admin\NewsController@add') }}">新規作成
+                                <a class="nav-link" href="{{ action('Admin\NewsController@add') }}">記録の作成
                                 </a>
                             </li>
                             <li class="nav-item">

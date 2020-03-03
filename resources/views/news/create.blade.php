@@ -14,13 +14,13 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2">場所</label>
+                        <label class="col-md-2">場所<span class="required">必須</span></label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="title" value="{{ old('title') }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">都道府県</label>
+                        <label class="col-md-2">都道府県<span class="required">必須</span></label>
                         <div class="col-md-10">
                         <select type="text" class="form-control" name="area" value="{{ old('area') }}">
                             @foreach(config('pref') as $key => $score)
@@ -36,14 +36,14 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">記録内容</label>
+                        <label class="col-md-2">記録内容<span class="required">必須</span></label>
                         <div class="col-md-10">
                             <textarea class="form-control" name="body" rows="20">{{ old('body') }}</textarea>
                         </div>
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-2">満足度</label>
+                        <label class="col-md-2">満足度<span class="required">必須</span></label>
                         <div class="col-md-10">
                         <select type="text" class="form-control" name="review" value="{{ old('review') }}">
                             @foreach(config('score') as $key => $score)
