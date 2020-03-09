@@ -63,7 +63,7 @@ class UserController extends Controller
     public function softdelete()
     {
         User::find(Auth::id())->delete();
-        return redirect('news/index');
+        return view('user.softdelete');
     }
 
     

@@ -32,7 +32,7 @@
             
         <div class="right-body">
                 <div class="time">
-                    <!--日時-->
+                    <!--日にち-->
                     <p>{{ $news->day }}</p>
                 </div>
                 

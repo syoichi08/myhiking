@@ -9,7 +9,7 @@
                     @if (count($errors) > 0)
                         <ul>
                             @foreach($errors->all() as $e)
-                                <li>{{ $e }}</li>
+                                <li class="validation">※{{ $e }}</li>
                             @endforeach
                         </ul>
                     @endif
@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">都道府県<span class="required">必須</span></label>
+                        <label class="col-md-2">都道府県</label>
                         <div class="col-md-10">
                         <select type="text" class="form-control" name="area" value="{{ old('area') }}">
                             @foreach(config('pref') as $key => $score)
@@ -30,9 +30,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">日時</label>
+                        <label class="col-md-2">日にち</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="day" value="{{ old('day') }}">
+                            <input type="text" class="form-control" name="day" value="{{ old('day') }}" placeholder="例) 2019/05/03">
                         </div>
                     </div>
                     <div class="form-group row">

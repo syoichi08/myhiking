@@ -7,8 +7,10 @@ use App\Http\Controllers\Controller;
 use App\News;
 // Authの読み込み
 use Illuminate\Support\Facades\Auth;
-//Aws s3ストレージの利用
+//AWS S3ストレージの利用
 use Storage;
+//アップロード画像のリサイズ化
+use Intervention\Image\Facades\Image;
 
 class NewsController extends Controller
 {

@@ -10,9 +10,8 @@ class News extends Model
 
     public static $rules = array(
         'title' => 'required',
-        'area' => 'required',
-        'day' => 'required',
         'body' => 'required',
+        'review' => 'required',
     );
     public function user()
     {

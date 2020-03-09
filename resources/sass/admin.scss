@@ -132,6 +132,8 @@ section {
 
 .img {
   margin: 10px;
+  width: 250px;
+  height: 250px;
 }
 
 .desk {
@@ -151,6 +153,11 @@ section {
   padding: 3px;
   margin-left: 10px;
   font-size: 0.5em;
+}
+
+.validation {
+  list-style: none;
+  color: red;
 }
 
 /*
@@ -186,7 +193,7 @@ section {
 
 .user-btn {
   display: block;
-  width: 45%;
+  width: 40%;
   // text-align: center;
   // margin: auto;
   margin: 20px 0px 20px 0;
